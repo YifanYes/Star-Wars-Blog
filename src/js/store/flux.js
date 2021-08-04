@@ -1,16 +1,29 @@
+const Base_URL = "https://www.swapi.tech/api/";
 import { useEffect } from "react";
 
 const getState = ({ getStore, getActions, setStore }) => {
-	const baseURL = "https://www.swapi.tech/api/";
 
 	return {
 		store: {
-			starships: {}
-		},
 
+			planets: {},
+      starships: {}
+		},
 		actions: {
+			getPlanets: () => {
+				fetch(Base_URL.concat("planets?page=2&limit=100"))
+					.then(response => {
+						if (!response.ok) {
+							throw new Error("Algo..", response.status);
+						}
+						return response.json();
+					})
+					.then(jsonPlanets => {
+						setStore({ planets: jsonPlanets.results });
+						console.log(jsonPlanets.results);			
+		},
 			getStarships: () => {
-				fetch(baseURL.concat("starships?page=2&limit=100"), {
+				fetch(Base_URL.concat("starships?page=2&limit=100"), {
 					method: "GET",
 					mode: "cors",
 					redirect: "follow"

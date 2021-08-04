@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { Context } from "../store/appContext";
 import "../../styles/home.scss";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<p>Esto es un blog</p>
-	</div>
-);
+export const Home = () => {
+	const { store, actions } = useContext(Context);
+
+	useEffect(
+		() => {
+			console.log(store.planets);
+		},
+		[store.planets]
+	);
+
+	return (
+		<div>
+			<h1>Planets</h1>
+		</div>
+	);
+};
