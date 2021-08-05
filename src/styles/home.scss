@@ -1,0 +1,29 @@
+@import "~bootstrap/scss/bootstrap";
+
+body{
+    background-color: rgb(24, 23, 23);
+}
+
+.card-container {
+    margin-top:1 rem;
+    margin-bottom: 1rem;
+}
+
+.card-title{
+    font-weight: bolder;
+}
+
+.cardImage{
+    width: 100%;
+}
+
+.fav {
+    float: right;
+}
+
+.footer {
+    color:white;
+}
+
+
+
