@@ -11,7 +11,7 @@ const NewCard = props => {
 
 	return (
 		<div className="card-container">
-			<Card style={{ width: "18rem", heigth: "22rem" }}>
+			<Card style={{ width: "30rem", heigth: "25rem" }}>
 				<Card.Img variant="top" src={props.image} className="cardImage" />
 				<Card.Body>
 					<Card.Title>
@@ -25,9 +25,9 @@ const NewCard = props => {
 								Learn More
 							</a>
 						</Link>
-						<Button variant="primary" className="fav">
+						<Button variant="danger" className="fav">
 							{" "}
-							♡{" "}
+							♥{" "}
 						</Button>
 					</div>
 				</Card.Body>

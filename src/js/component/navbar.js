@@ -3,16 +3,28 @@ import { Link } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import bb from "./bb.png";
 
 export const NavbarNew = () => {
 	return (
-		<Navbar bg="light" expand="lg">
+		<Navbar bg="dark" variant="dark" expand="lg">
 			<Container>
-				<Navbar.Brand href="#home">Star Wars Blog</Navbar.Brand>
+				<Navbar.Brand href="#home">
+					<img src={bb} className="bb" />
+					<span>Star Wars Blog</span>
+				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="me-auto">
-						<Nav.Link href="#link">Favorites</Nav.Link>
+						<DropdownButton
+							id="dropdown-basic-button"
+							title="Favorites"
+							variant="light"
+							className="fav-btn">
+							<Dropdown.Item href="#/action-1">No favorites (yet)</Dropdown.Item>
+						</DropdownButton>
 					</Nav>
 				</Navbar.Collapse>
 			</Container>

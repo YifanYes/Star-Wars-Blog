@@ -8,7 +8,7 @@ import { People } from "./people";
 
 const NewTab = () => {
 	return (
-		<Tabs defaultActiveKey="starships" id="uncontrolled-tab-example" className="mb-3">
+		<Tabs defaultActiveKey="starships" id="uncontrolled-tab-example" className="tab mb-3">
 			<Tab eventKey="people" title="People">
 				<People />
 			</Tab>
