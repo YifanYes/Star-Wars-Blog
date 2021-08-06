@@ -8,6 +8,7 @@ import injectContext from "./store/appContext";
 import { Starships } from "./views/starships.js";
 import { NavbarNew } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { Newcarousel } from "./component/newcarousel";
 
 const Layout = () => {
 	const basename = process.env.BASENAME || "";
@@ -16,6 +17,7 @@ const Layout = () => {
 		<div className="d-flex flex-column">
 			<BrowserRouter basename={basename}>
 				<NavbarNew />
+				<Newcarousel />
 				<Switch>
 					<Route exact path="/">
 						<Home />
