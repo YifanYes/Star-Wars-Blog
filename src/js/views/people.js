@@ -17,7 +17,7 @@ export const People = () => {
 								key={index.toString()}
 								title={elem.name}
 								uid={elem.uid}
-								type="planets"
+								type="people"
 								description="Someone within the Star Wars universe"
 								image="https://wallpaperaccess.com/full/2835756.jpg"
 							/>

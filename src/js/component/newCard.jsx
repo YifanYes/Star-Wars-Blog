@@ -20,10 +20,8 @@ const NewCard = props => {
 					</Card.Title>
 					<Card.Text> {props.description} </Card.Text>
 					<div className="display-buttons">
-						<Link to={link}>
-							<a href="" className="btn btn-warning">
-								Learn More
-							</a>
+						<Link to={link} className="btn btn-warning">
+							Learn More
 						</Link>
 						<Button variant="danger" className="fav">
 							{" "}

@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
-import { Context } from "../store/appContext";
 import { Starships } from "./starships";
 import { Planets } from "./planets";
 import { People } from "./people";
