@@ -13,23 +13,24 @@ export const StarshipsDetails = () => {
 
 	useEffect(
 		() => {
-			if (store.starshipsDetails.result != undefined) {
+			if (store.starshipsDetails.results != undefined) {
+				console.log(store.starshipsDetails, "esto es de las naves");
 				setStarshipsDetails(
 					<>
-						<h2>{store.starshipsDetails.result.properties.model}</h2>
+						<h2>{store.starshipsDetails.results.properties.model}</h2>
 						<ul>
-							<li>Starship class ⇨ {store.startshipsDetails.result.properties.starship_class}</li>
-							<li>Manufacturer ⇨ {store.startshipsDetails.result.properties.manufacturer}</li>
-							<li>Cost in credits⇨ {store.startshipsDetails.result.properties.cost_in_credits}</li>
-							<li>Length ⇨ {store.startshipsDetails.result.properties.length}</li>
-							<li>Crew ⇨ {store.startshipsDetails.result.properties.crew}</li>
+							<li>Starship class ⇨ {store.startshipsDetails.results.properties.starship_class}</li>
+							<li>Manufacturer ⇨ {store.startshipsDetails.results.properties.manufacturer}</li>
+							<li>Cost in credits⇨ {store.startshipsDetails.results.properties.cost_in_credits}</li>
+							<li>Length ⇨ {store.startshipsDetails.results.properties.length}</li>
+							<li>Crew ⇨ {store.startshipsDetails.results.properties.crew}</li>
 							<li>
 								Max atmosphering speed ⇨{" "}
-								{store.startshipsDetails.result.properties.max_atmosphering_speed}
+								{store.startshipsDetails.results.properties.max_atmosphering_speed}
 							</li>
-							<li>Hyperdrive rating ⇨ {store.startshipsDetails.result.properties.hyperdrive_rating}</li>
-							<li>Cargo capacity ⇨ {store.startshipsDetails.result.properties.cargo_capacity}</li>
-							<li>Consumables ⇨ {store.startshipsDetails.result.properties.consumables}</li>
+							<li>Hyperdrive rating ⇨ {store.startshipsDetails.results.properties.hyperdrive_rating}</li>
+							<li>Cargo capacity ⇨ {store.startshipsDetails.results.properties.cargo_capacity}</li>
+							<li>Consumables ⇨ {store.startshipsDetails.results.properties.consumables}</li>
 						</ul>
 					</>
 				);
