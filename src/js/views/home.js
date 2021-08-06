@@ -9,6 +9,7 @@ export const Home = () => {
 
 	return (
 		<div>
+			<Newcarousel />
 			<NewTab />
 		</div>
 	);

@@ -1,8 +1,6 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 
-import "../../styles/newcarousel.scss";
-
 export const Newcarousel = () => {
 	return (
 		<Carousel fade className="container_carousel rounded">
