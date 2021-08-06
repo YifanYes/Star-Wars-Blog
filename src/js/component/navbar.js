@@ -11,8 +11,10 @@ export const NavbarNew = () => {
 	return (
 		<Navbar bg="dark" variant="dark" expand="lg">
 			<Container>
-				<Navbar.Brand href="#home">
-					<img src={bb} className="bb" />
+				<Navbar.Brand>
+					<Link to="/">
+						<img src={bb} className="bb" />
+					</Link>
 					<span>Star Wars Blog</span>
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />

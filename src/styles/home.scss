@@ -18,6 +18,10 @@ body{
     color:white;
 }
 
+.nav-link:hover {
+    color: #ffca2c;
+  }
+
 .card-container {
     margin-top:1 rem;
     margin-bottom: 1rem;
@@ -35,9 +39,19 @@ body{
     float: right;
 }
 
+.detail-photo {
+    width: 100%;
+}
+
+.detail-text {
+    color: white;
+}
+
 .footer {
     color:white;
 }
 
-
+.not-found {
+    color: white;
+}
 
