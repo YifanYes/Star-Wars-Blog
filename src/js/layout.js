@@ -7,6 +7,10 @@ import injectContext from "./store/appContext.js";
 import { People } from "./views/people.js";
 import { PeopleDetails } from "./views/people-details.js";
 import { Starships } from "./views/starships.js";
+
+
+import { Newcarousel } from "./component/newcarousel";
+
 import { StarshipsDetails } from "./views/starships-details.js";
 import { Planets } from "./views/planets.js";
 import { PlanetsDetails } from "./views/planet-details.js";
@@ -21,6 +25,7 @@ const Layout = () => {
 		<div className="d-flex flex-column">
 			<BrowserRouter basename={basename}>
 				<NavbarNew />
+				<Newcarousel />
 				<Switch>
 					<Route exact path="/">
 						<Home />

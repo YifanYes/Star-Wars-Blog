@@ -1,0 +1,29 @@
+@import "~bootstrap/scss/bootstrap";
+
+.carousel_img {
+    left: 50px;
+    position: relative;
+    top: 30px;
+    width: 50%;
+    left: 25%;
+    
+    height: 50vh;
+
+}
+.container_carousel {
+    background-image: url(https://www.wallpapertip.com/wmimgs/66-662614_hd-space-wallpaper-for-background-cool-space-1080p.jpg);
+    margin: 1rem;
+    padding: 0.5rem;
+    position:relative;
+    background-position: center;
+    background-size: cover; 
+    height: 60vh;
+}
+.textP {
+    color: white;
+    font-size: 20px;
+    /*background: linear-gradient(rgb(15, 15, 15),rgb(32, 32, 32),rgb(43, 43, 43),rgb(66, 66, 66));*/
+    border-radius: 10px;
+    width: 650px;  
+   
+}
