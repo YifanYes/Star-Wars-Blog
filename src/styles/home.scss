@@ -4,6 +4,24 @@ body{
     background-color: rgb(24, 23, 23);
 }
 
+.bb{
+    width: 32px;
+    height: 35px;
+    margin: 0.8rem;
+}
+
+.fav-btn {
+    margin-left: 60rem;
+}
+
+.nav-link {
+    color:white;
+}
+
+.nav-link:hover {
+    color: #ffca2c;
+  }
+
 .card-container {
     margin-top:1 rem;
     margin-bottom: 1rem;
@@ -21,9 +39,19 @@ body{
     float: right;
 }
 
+.detail-photo {
+    width: 100%;
+}
+
+.detail-text {
+    color: white;
+}
+
 .footer {
     color:white;
 }
 
-
+.not-found {
+    color: white;
+}
 
