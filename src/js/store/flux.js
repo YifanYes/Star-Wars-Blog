@@ -8,7 +8,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planets: [],
 			planetsDetails: [],
 			starships: [],
-			starshipsDetails: []
+			starshipsDetails: [],
+			changeFavourites: false
 		},
 
 		actions: {
@@ -142,6 +143,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => {
 						console.log(error);
 					});
+			},
+
+			setFavourites: element => {
+				let favourites = JSON.parse(localStorage.getItem("favourites"));
+				const removeItemFromArr = (myArray, element) => {
+					let index = myArray.findIndex(x => x.name == element.name);
+					myArray.splice(index, 1);
+				};
+				if (favourites.findIndex(x => x.name == element.name) == -1) {
+					localStorage.setItem("favourites", JSON.stringify([...favourites, element]));
+				} else {
+					removeItemFromArr(favourites, element);
+					localStorage.setItem("favourites", JSON.stringify(favourites));
+				}
+				setStore({ changeFavourites: !getStore().changeFavourites });
 			}
 		}
 	};

@@ -19,6 +19,10 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
+			if (!localStorage.getItem("favourites")) {
+				localStorage.setItem("favourites", JSON.stringify([]));
+			}
+
 			//Llamada a getPeople y lo guarda en local
 			localStorage.getItem("people")
 				? state.actions.setPeople(localStorage.getItem("people"))
