@@ -11,28 +11,25 @@ export const PeopleDetails = () => {
 		actions.getPeopleDetails(params.id);
 	}, []);
 
-	useEffect(
-		() => {
-			if (store.peopleDetails.result != undefined) {
-				setPeopleDetails(
-					<>
-						<h2>{store.peopleDetails.result.properties.name}</h2>
-						<ul>
-							<li>Gender ⇨ {store.peopleDetails.result.properties.gender}</li>
-							<li>Birth Year ⇨ {store.peopleDetails.result.properties.birth_year}</li>
-							<li>Height ⇨ {store.peopleDetails.result.properties.height} cm</li>
-							<li>Mass ⇨ {store.peopleDetails.result.properties.mass} kg</li>
-							<li>Skin color ⇨ {store.peopleDetails.result.properties.skin_color}</li>
-							<li>Eye color ⇨ {store.peopleDetails.result.properties.eye_color}</li>
-							<li>Hair color ⇨ {store.peopleDetails.result.properties.hair_color}</li>
-							<li>Description ⇨ {store.peopleDetails.result.description}</li>
-						</ul>
-					</>
-				);
-			}
-		},
-		[store.peopleDetails]
-	);
+	useEffect(() => {
+		if (store.peopleDetails.result != undefined) {
+			setPeopleDetails(
+				<>
+					<h2>{store.peopleDetails.result.properties.name}</h2>
+					<ul>
+						<li>Gender ⇨ {store.peopleDetails.result.properties.gender}</li>
+						<li>Birth Year ⇨ {store.peopleDetails.result.properties.birth_year}</li>
+						<li>Height ⇨ {store.peopleDetails.result.properties.height} cm</li>
+						<li>Mass ⇨ {store.peopleDetails.result.properties.mass} kg</li>
+						<li>Skin color ⇨ {store.peopleDetails.result.properties.skin_color}</li>
+						<li>Eye color ⇨ {store.peopleDetails.result.properties.eye_color}</li>
+						<li>Hair color ⇨ {store.peopleDetails.result.properties.hair_color}</li>
+						<li>Description ⇨ {store.peopleDetails.result.description}</li>
+					</ul>
+				</>
+			);
+		}
+	}, [store.peopleDetails]);
 
 	return (
 		<div className="container">
