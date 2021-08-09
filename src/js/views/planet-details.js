@@ -11,28 +11,25 @@ export const PlanetsDetails = () => {
 		actions.getPlanetsDetails(params.id);
 	}, []);
 
-	useEffect(
-		() => {
-			if (store.planetsDetails.result != undefined) {
-				setPlanetsDetails(
-					<>
-						<h2>{store.planetsDetails.result.properties.name}</h2>
-						<ul>
-							<li>Diameter ⇨ {store.planetsDetails.result.properties.diameter}</li>
-							<li>Rotation Period ⇨ {store.planetsDetails.result.properties.rotation_period}</li>
-							<li>Orbital period ⇨ {store.planetsDetails.result.properties.orbital_period}</li>
-							<li>Gravity ⇨ {store.planetsDetails.result.properties.gravity}</li>
-							<li>Population ⇨ {store.planetsDetails.result.properties.population}</li>
-							<li>Climate ⇨ {store.planetsDetails.result.properties.climate}</li>
-							<li>Surface Water ⇨ {store.planetsDetails.result.properties.surface_water}</li>
-							<li>Description ⇨ {store.planetsDetails.result.description}</li>
-						</ul>
-					</>
-				);
-			}
-		},
-		[store.planetsDetails]
-	);
+	useEffect(() => {
+		if (store.planetsDetails.result != undefined) {
+			setPlanetsDetails(
+				<>
+					<h2>{store.planetsDetails.result.properties.name}</h2>
+					<ul>
+						<li>Diameter ⇨ {store.planetsDetails.result.properties.diameter}</li>
+						<li>Rotation Period ⇨ {store.planetsDetails.result.properties.rotation_period}</li>
+						<li>Orbital period ⇨ {store.planetsDetails.result.properties.orbital_period}</li>
+						<li>Gravity ⇨ {store.planetsDetails.result.properties.gravity}</li>
+						<li>Population ⇨ {store.planetsDetails.result.properties.population}</li>
+						<li>Climate ⇨ {store.planetsDetails.result.properties.climate}</li>
+						<li>Surface Water ⇨ {store.planetsDetails.result.properties.surface_water}</li>
+						<li>Description ⇨ {store.planetsDetails.result.description}</li>
+					</ul>
+				</>
+			);
+		}
+	}, [store.planetsDetails]);
 
 	return (
 		<div className="container">
