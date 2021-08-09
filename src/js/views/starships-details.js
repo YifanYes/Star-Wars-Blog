@@ -11,32 +11,28 @@ export const StarshipsDetails = () => {
 		actions.getStarshipsDetails(params.id);
 	}, []);
 
-	useEffect(
-		() => {
-			if (store.starshipsDetails.result != undefined) {
-				setStarshipsDetails(
-					<>
-						<h2>{store.starshipsDetails.result.properties.model}</h2>
-						<ul>
-							<li>Starship class ⇨ {store.startshipsDetails.result.properties.starship_class}</li>
-							<li>Manufacturer ⇨ {store.startshipsDetails.result.properties.manufacturer}</li>
-							<li>Cost in credits⇨ {store.startshipsDetails.result.properties.cost_in_credits}</li>
-							<li>Length ⇨ {store.startshipsDetails.result.properties.length}</li>
-							<li>Crew ⇨ {store.startshipsDetails.result.properties.crew}</li>
-							<li>
-								Max atmosphering speed ⇨{" "}
-								{store.startshipsDetails.result.properties.max_atmosphering_speed}
-							</li>
-							<li>Hyperdrive rating ⇨ {store.startshipsDetails.result.properties.hyperdrive_rating}</li>
-							<li>Cargo capacity ⇨ {store.startshipsDetails.result.properties.cargo_capacity}</li>
-							<li>Consumables ⇨ {store.startshipsDetails.result.properties.consumables}</li>
-						</ul>
-					</>
-				);
-			}
-		},
-		[store.starshipsDetails]
-	);
+	useEffect(() => {
+		if (store.starshipsDetails.result != undefined) {
+			setStarshipsDetails(
+				<>
+					<h2>{store.starshipsDetails.result.properties.model}</h2>
+					<ul>
+						<li>Starship class ⇨ {store.startshipsDetails.result.properties.starship_class}</li>
+						<li>Manufacturer ⇨ {store.startshipsDetails.result.properties.manufacturer}</li>
+						<li>Cost in credits⇨ {store.startshipsDetails.result.properties.cost_in_credits}</li>
+						<li>Length ⇨ {store.startshipsDetails.result.properties.length}</li>
+						<li>Crew ⇨ {store.startshipsDetails.result.properties.crew}</li>
+						<li>
+							Max atmosphering speed ⇨ {store.startshipsDetails.result.properties.max_atmosphering_speed}
+						</li>
+						<li>Hyperdrive rating ⇨ {store.startshipsDetails.result.properties.hyperdrive_rating}</li>
+						<li>Cargo capacity ⇨ {store.startshipsDetails.result.properties.cargo_capacity}</li>
+						<li>Consumables ⇨ {store.startshipsDetails.result.properties.consumables}</li>
+					</ul>
+				</>
+			);
+		}
+	}, [store.starshipsDetails]);
 
 	return (
 		<div className="container">
