@@ -9,38 +9,40 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planetsDetails: [],
 			starships: [],
 			starshipsDetails: [],
-			nextPlanets: "",
-			nextPeople: "",
-			nextStarships: ""
+			changeFavourites: false
 		},
 
 		actions: {
-			getPlanets: () => {
-				let url = getStore().nextPlanets ? getStore().nextPlanets : Base_URL.concat("planets");
+			getPlanets: async (url = Base_URL.concat("planets")) => {
+				try {
+					const response = await fetch(url);
 
-				fetch(url)
-					.then(response => {
-						if (!response.ok) {
-							throw new Error(response.statusText);
-						}
-						return response.json();
-					})
-					.then(jsonPlanets => {
-						setStore({ planets: [...getStore().planets, ...jsonPlanets.results].flat() });
-						console.log(jsonPlanets.results);
+					if (!response.ok) {
+						throw new Error("Something went wrong: ".concat(response.statusText));
+					}
 
-						if (jsonPlanets.next) {
-							setStore({ nextPlanets: jsonPlanets.next });
-							getActions().getPlanets();
-						}
-					})
-					.catch(error => {
-						console.log(error);
-					});
+					const jsonPlanets = await response.json();
+					console.log(jsonPlanets);
+					localStorage.setItem("planets", JSON.stringify(jsonPlanets.results));
+					getActions().setPlanets();
+
+					if (jsonPlanets.next) {
+						getActions().getPlanets(jsonPlanets.next);
+					}
+				} catch (error) {
+					console.log(error);
+				}
+			},
+
+			setPlanets: () => {
+				let arrayPlanets = localStorage.getItem("planets");
+				arrayPlanets = JSON.parse(arrayPlanets);
+				console.log(arrayPlanets);
+				setStore({ planets: [...getStore().planets, ...arrayPlanets] });
 			},
 
 			getPlanetsDetails: uid => {
-				fetch("https://www.swapi.tech/api/planets/".concat(uid), { method: "GET" })
+				fetch(Base_URL.concat("planets/", uid), { method: "GET" })
 					.then(function(response) {
 						if (!response.ok) {
 							throw Error(response.statusText);
@@ -55,32 +57,36 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 
-			getStarships: () => {
-				let url = getStore().nextStarships ? getStore().nextStarships : Base_URL.concat("starships");
+			getStarships: async (url = Base_URL.concat("starships")) => {
+				try {
+					const response = await fetch(url);
 
-				fetch(url)
-					.then(response => {
-						if (!response.ok) {
-							throw new Error(response.statusText);
-						}
-						return response.json();
-					})
-					.then(jsonStarships => {
-						setStore({ starships: [...getStore().starships, ...jsonStarships.results].flat() });
-						console.log(jsonStarships.results);
+					if (!response.ok) {
+						throw new Error("Something went wrong: ".concat(response.statusText));
+					}
 
-						if (jsonStarships.next) {
-							setStore({ nextStarships: jsonStarships.next });
-							getActions().getStarships();
-						}
-					})
-					.catch(error => {
-						console.log(error);
-					});
+					const jsonStarships = await response.json();
+					console.log(jsonStarships);
+					localStorage.setItem("starships", JSON.stringify(jsonStarships.results));
+					getActions().setStarships();
+
+					if (jsonStarships.next) {
+						getActions().getStarships(jsonStarships.next);
+					}
+				} catch (error) {
+					console.log(error);
+				}
+			},
+
+			setStarships: () => {
+				let arrayStarships = localStorage.getItem("starships");
+				arrayStarships = JSON.parse(arrayStarships);
+				console.log(arrayStarships);
+				setStore({ starships: [...getStore().starships, ...arrayStarships] });
 			},
 
 			getStarshipsDetails: uid => {
-				fetch("https://www.swapi.tech/api/starships/".concat(uid), { method: "GET" })
+				fetch(Base_URL.concat("starships/", uid), { method: "GET" })
 					.then(function(response) {
 						if (!response.ok) {
 							throw Error(response.statusText);
@@ -95,32 +101,36 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 
-			getPeople: () => {
-				let url = getStore().nextPeople ? getStore().nextPeople : Base_URL.concat("people");
+			getPeople: async (url = Base_URL.concat("people")) => {
+				try {
+					const response = await fetch(url);
 
-				fetch(url)
-					.then(response => {
-						if (!response.ok) {
-							throw new Error(response.statusText);
-						}
-						return response.json();
-					})
-					.then(jsonPeople => {
-						setStore({ people: [...getStore().people, ...jsonPeople.results].flat() });
-						console.log(jsonPeople.results);
+					if (!response.ok) {
+						throw new Error("Something went wrong: ".concat(response.statusText));
+					}
 
-						if (jsonPeople.next) {
-							setStore({ nextPeople: jsonPeople.next });
-							getActions().getPeople();
-						}
-					})
-					.catch(error => {
-						console.log(error);
-					});
+					const jsonPeople = await response.json();
+					console.log(jsonPeople);
+					localStorage.setItem("people", JSON.stringify(jsonPeople.results));
+					getActions().setPeople();
+
+					if (jsonPeople.next) {
+						getActions().getPeople(jsonPeople.next);
+					}
+				} catch (error) {
+					console.log(error);
+				}
+			},
+
+			setPeople: () => {
+				let arrayPeople = localStorage.getItem("people");
+				arrayPeople = JSON.parse(arrayPeople);
+				console.log(arrayPeople);
+				setStore({ people: [...getStore().people, ...arrayPeople] });
 			},
 
 			getPeopleDetails: uid => {
-				fetch("https://www.swapi.tech/api/people/".concat(uid), { method: "GET" })
+				fetch(Base_URL.concat("starships/", uid), { method: "GET" })
 					.then(function(response) {
 						if (!response.ok) {
 							throw Error(response.statusText);
@@ -133,6 +143,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => {
 						console.log(error);
 					});
+			},
+
+			setFavourites: element => {
+				let favourites = JSON.parse(localStorage.getItem("favourites"));
+				const removeItemFromArr = (myArray, element) => {
+					let index = myArray.findIndex(x => x.name == element.name);
+					myArray.splice(index, 1);
+				};
+				if (favourites.findIndex(x => x.name == element.name) == -1) {
+					localStorage.setItem("favourites", JSON.stringify([...favourites, element]));
+				} else {
+					removeItemFromArr(favourites, element);
+					localStorage.setItem("favourites", JSON.stringify(favourites));
+				}
+				setStore({ changeFavourites: !getStore().changeFavourites });
 			}
 		}
 	};
