@@ -63,6 +63,7 @@ export const Footer = () => (
 					</Form>
 				</div>
 			</div>
+			<p className="copyright">4Geeks Academy © 2021</p>
 		</div>
 	</footer>
 );
