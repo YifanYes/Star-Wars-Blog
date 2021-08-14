@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 
 export const Footer = () => (
 	<footer className="footer mt-auto py-3 text-center">
-		<div className="container">
+		<div className="container-Paloma">
 			<div className="row">
 				{/*column1*/}
 				<div className="col">
