@@ -21,6 +21,7 @@ const NewCard = props => {
 		[localStorage.getItem("favourites")]
 	);
 
+
 	return (
 		<div className="card-container">
 			<Card style={{ width: "30rem", heigth: "25rem" }}>
