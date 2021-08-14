@@ -19,9 +19,24 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
-			state.actions.getPeople();
-			state.actions.getPlanets();
-			state.actions.getStarships();
+			if (!localStorage.getItem("favourites")) {
+				localStorage.setItem("favourites", JSON.stringify([]));
+			}
+
+			//Llamada a getPeople y lo guarda en local
+			localStorage.getItem("people")
+				? state.actions.setPeople(localStorage.getItem("people"))
+				: state.actions.getPeople();
+
+			//Llamada a getPlanets y lo guarda en local
+			localStorage.getItem("planets")
+				? state.actions.setPlanets(localStorage.getItem("planets"))
+				: state.actions.getPlanets();
+
+			//Llamada a getStarships y lo guarda en local
+			localStorage.getItem("starships")
+				? state.actions.setStarships(localStorage.getItem("starships"))
+				: state.actions.getStarships();
 		}, []);
 
 		return (
