@@ -14,34 +14,37 @@ export const NavbarNew = () => {
 	const favourites = JSON.parse(localStorage.getItem("favourites"));
 	const [favouritesMap, setFavouritesMap] = useState([]);
 
-	useEffect(() => {
-		if (favourites != undefined) {
-			setFavouritesMap(
-				favourites.map((element, index) => {
-					return (
-						<div className="d-flex justify-content-between flex-nowrap" key={index.toString()}>
-							<Link href={"/".concat(element.type, "/", element.id)}>
-								<span className="favourite-name">{element.name}</span>
-							</Link>
-							<Button
-								className="btn bg-transparent p-0"
-								onClick={() =>
-									actions.setFavourites({
-										name: element.name,
-										id: element.id,
-										type: element.type
-									})
-								}>
-								<div className="text-danger">
-									<img src={trash} className="trash-icon" />
-								</div>
-							</Button>
-						</div>
-					);
-				})
-			);
-		}
-	}, [store.changeFavourites]);
+	useEffect(
+		() => {
+			if (favourites != undefined) {
+				setFavouritesMap(
+					favourites.map((element, index) => {
+						return (
+							<div className="d-flex justify-content-between flex-nowrap" key={index.toString()}>
+								<Link href={"/".concat(element.type, "/", element.id)}>
+									<span className="favourite-name">{element.name}</span>
+								</Link>
+								<Button
+									className="btn bg-transparent p-0"
+									onClick={() =>
+										actions.setFavourites({
+											name: element.name,
+											id: element.id,
+											type: element.type
+										})
+									}>
+									<div className="text-danger">
+										<img src={trash} className="trash-icon" />
+									</div>
+								</Button>
+							</div>
+						);
+					})
+				);
+			}
+		},
+		[store.changeFavourites]
+	);
 
 	return (
 		<Navbar bg="dark" variant="dark" expand="lg">

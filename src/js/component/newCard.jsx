@@ -10,13 +10,17 @@ const NewCard = props => {
 	const link = "/".concat(props.type, "/", props.uid);
 	const [heartColor, setHeartColor] = useState("text-white");
 
-	useEffect(() => {
-		if (JSON.parse(localStorage.getItem("favourites")).findIndex(x => x.name == props.title) >= 0) {
-			setHeartColor("text-danger");
-		} else {
-			setHeartColor("text-white");
-		}
-	}, [localStorage.getItem("favourites")]);
+	useEffect(
+		() => {
+			if (JSON.parse(localStorage.getItem("favourites")).findIndex(x => x.name == props.title) >= 0) {
+				setHeartColor("text-danger");
+			} else {
+				setHeartColor("text-white");
+			}
+		},
+		[localStorage.getItem("favourites")]
+	);
+
 
 	return (
 		<div className="card-container">

@@ -11,28 +11,32 @@ export const StarshipsDetails = () => {
 		actions.getStarshipsDetails(params.id);
 	}, []);
 
-	useEffect(() => {
-		if (store.starshipsDetails.result != undefined && store.starshipsDetails != undefined) {
-			setStarshipsDetails(
-				<>
-					<h2>{store.starshipsDetails.result.properties.model}</h2>
-					<ul>
-						<li>Starship class ⇨ {store.starshipsDetails.result.properties.starship_class}</li>
-						<li>Manufacturer ⇨ {store.starshipsDetails.result.properties.manufacturer}</li>
-						<li>Cost in credits⇨ {store.starshipsDetails.result.properties.cost_in_credits}</li>
-						<li>Length ⇨ {store.starshipsDetails.result.properties.length}</li>
-						<li>Crew ⇨ {store.starshipsDetails.result.properties.crew}</li>
-						<li>
-							Max atmosphering speed ⇨ {store.starshipsDetails.result.properties.max_atmosphering_speed}
-						</li>
-						<li>Hyperdrive rating ⇨ {store.starshipsDetails.result.properties.hyperdrive_rating}</li>
-						<li>Cargo capacity ⇨ {store.starshipsDetails.result.properties.cargo_capacity}</li>
-						<li>Consumables ⇨ {store.starshipsDetails.result.properties.consumables}</li>
-					</ul>
-				</>
-			);
-		}
-	}, [store.starshipsDetails]);
+	useEffect(
+		() => {
+			if (store.starshipsDetails.result != undefined && store.starshipsDetails != undefined) {
+				setStarshipsDetails(
+					<>
+						<h2>{store.starshipsDetails.result.properties.model}</h2>
+						<ul>
+							<li>Starship class ⇨ {store.starshipsDetails.result.properties.starship_class}</li>
+							<li>Manufacturer ⇨ {store.starshipsDetails.result.properties.manufacturer}</li>
+							<li>Cost in credits⇨ {store.starshipsDetails.result.properties.cost_in_credits}</li>
+							<li>Length ⇨ {store.starshipsDetails.result.properties.length}</li>
+							<li>Crew ⇨ {store.starshipsDetails.result.properties.crew}</li>
+							<li>
+								Max atmosphering speed ⇨{" "}
+								{store.starshipsDetails.result.properties.max_atmosphering_speed}
+							</li>
+							<li>Hyperdrive rating ⇨ {store.starshipsDetails.result.properties.hyperdrive_rating}</li>
+							<li>Cargo capacity ⇨ {store.starshipsDetails.result.properties.cargo_capacity}</li>
+							<li>Consumables ⇨ {store.starshipsDetails.result.properties.consumables}</li>
+						</ul>
+					</>
+				);
+			}
+		},
+		[store.starshipsDetails]
+	);
 
 	return (
 		<div className="container">
